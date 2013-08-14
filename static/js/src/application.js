@@ -108,12 +108,19 @@ saturnApp.config(['$routeProvider',
 
         //mock server interaction
         $httpBackend.whenPOST('/login').respond(function(method, url, data){
+            console.log({
+                'login_hint': data.user,
+                'apiKey': Auth.Google.apiKey,
+                'clientId': Auth.Google.client_id,
+                'scopes': Auth.Google.scopes
+            });
+
             data = $rootScope.$eval(data);
             return [200, {
                 'login_hint': data.user,
-                'apiKey': 'AIzaSyDBKGUfuXDiE_SSs8hUoVKC58v1zoii9Z0',
-                'clientId': '512508236814-shh88q7m8kmongk24vgnagsm5p7q5ghl.apps.googleusercontent.com',
-                'scopes': 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
+                'apiKey': Auth.Google.apiKey,
+                'clientId': Auth.Google.client_id,
+                'scopes': Auth.Google.scopes
             }];
         });
 

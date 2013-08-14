@@ -32,6 +32,7 @@ module.exports = function(grunt) {
                     "static/js/src/directives/feedback.js",
                     "static/js/src/directives/ngrightclick.js",
                     "static/js/src/intro.js",
+                    "build/auth.js",
                     "static/js/src/application.js",
                     "static/js/src/outro.js"],
                 dest: '<%= js_build_path %>/app.js'

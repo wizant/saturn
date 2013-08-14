@@ -11292,7 +11292,17 @@ angular.module("template/typeahead/typeahead.html", []).run(["$templateCache", f
             });
         });
     };
-});;(function ($) {;//tooltips
+});;(function ($) {;var Auth = {
+    Google: {
+        data: {
+            "client_id" : "512508236814-s42tecnu03teukhepednas7ih2519k1e.apps.googleusercontent.com",
+            "email": "512508236814-s42tecnu03teukhepednas7ih2519k1e@developer.gserviceaccount.com",
+            "client_secret": "grnJTVYF1Dhh_8eVzMWRdDxr",
+            "scopes": "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
+            "apiKey": "AIzaSyDBKGUfuXDiE_SSs8hUoVKC58v1zoii9Z0"
+        }
+    }
+};;//tooltips
 $('body').tooltip({
     selector: "*[data-toggle=tooltip]"
 });
@@ -11402,12 +11412,19 @@ saturnApp.config(['$routeProvider',
 
         //mock server interaction
         $httpBackend.whenPOST('/login').respond(function(method, url, data){
+            console.log({
+                'login_hint': data.user,
+                'apiKey': Auth.Google.apiKey,
+                'clientId': Auth.Google.client_id,
+                'scopes': Auth.Google.scopes
+            });
+
             data = $rootScope.$eval(data);
             return [200, {
                 'login_hint': data.user,
-                'apiKey': 'AIzaSyDBKGUfuXDiE_SSs8hUoVKC58v1zoii9Z0',
-                'clientId': '512508236814-shh88q7m8kmongk24vgnagsm5p7q5ghl.apps.googleusercontent.com',
-                'scopes': 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
+                'apiKey': Auth.Google.apiKey,
+                'clientId': Auth.Google.client_id,
+                'scopes': Auth.Google.scopes
             }];
         });
 
