@@ -1,10 +1,11 @@
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask, request, render_template, send_from_directory, render_template
 
 app = Flask(__name__, static_url_path='', static_folder='static')
 
 @app.route('/')
-def index():
-    return app.send_static_file('index.html')
+def index(name=None):
+	# return app.send_static_file('index.html')
+	return render_template('index.html', name=name)
 
 @app.route('/post/<int:post_id>')
 def show_post(post_id):
