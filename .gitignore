@@ -31,3 +31,6 @@ venv
 ######################
 .idea
 
+# Ignore generated files
+static/js/app.js
+static/js/app.min.js
