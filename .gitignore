@@ -25,6 +25,7 @@ Thumbs.db
 build-local.properties
 build
 node_modules/
+venv
 
 # IDE generated files
 ######################
