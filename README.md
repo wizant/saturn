@@ -42,3 +42,10 @@ MIT license - https://github.com/bgrins/spectrum/blob/master/LICENSE
 
 Modernizr - http://modernizr.com/
 MIT license - http://modernizr.com/license/
+
+
+pip Guidelines
+==================
+
+	pip freeze > requirements.txt
+	pip install -r requirements.txt
